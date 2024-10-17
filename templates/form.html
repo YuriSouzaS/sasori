@@ -1,0 +1,55 @@
+{% extends 'layout/base.html' %}
+
+{% block head %}
+<style>
+  .row {
+    padding-top: 3%;
+  }
+  form {
+    padding: 10px;
+    border-radius: 3%;
+  }
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="row g-2">
+    <div class="col"></div>
+    <form method="post" class="card col-6" style="border: none;">
+
+        <div class="md-3">
+          <label for="nameProduto" class="form-label">Nome</label>
+          <input type="text" class="form-control" name="nameProduto" aria-describedby="nameHelp">
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+            <label for="desc" class="form-label">Descrição</label>
+            <textarea class="form-control" name="desc" rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="image">Url da Image</label>
+          <input type="text" class="form-control" name="image">
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="quantidade" class="form-label">Quantidade</label>
+            <input type="number" class="form-control" name="quantidade">
+          </div>
+        
+          <div class="col">
+            <label class="form-label" for="price">Preço</label>
+            <input type="text" class="form-control" name="price">
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Salvar</button>
+    </form>
+    <div class="col"></div>
+</div>
+{% endblock %}

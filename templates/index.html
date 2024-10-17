@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %}
+
+{% block head %}
+<style>
+  .card {
+    margin: 10px;
+  }
+
+  img {
+    padding: 10px;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    {% for item in date %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ item['image'] }}" height="200px" width="100px" class="card-img-top" alt="{{ item['desc'] }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ item['name'] }}</h5>
+          <p class="card-text text-truncate" style="max-width: 200px;"> {{ item['desc'] }} </p>
+          <p class="card-text"> Quantidade: {{ item['amount'] }} </p>
+          <hr>
+          <a href="#" class="btn btn-success">{{ item['price'] }}</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
