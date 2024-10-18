@@ -17,10 +17,8 @@ def add():
         amount: int = request.form['quantidade']
         price: float = request.form['price']
         category: str = request.form['category']
-        
-        print(name, desc, image, amount, price, category)
-        
-        save(name, amount, desc,image, price)
+                
+        save(name, amount, desc,image, price, category)
         return redirect(url_for('index'))
          
     return render_template('form.html')
