@@ -25,5 +25,11 @@ def add():
     return render_template('form.html')
 
 
+@app.route('/produto/')
+def produtoCard():
+    return render_template('produto.html')
+
+
+
 if __name__ == "__main__":
     app.run()
