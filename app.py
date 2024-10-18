@@ -16,8 +16,9 @@ def add():
         image: str = request.form['image']
         amount: int = request.form['quantidade']
         price: float = request.form['price']
+        category: str = request.form['category']
         
-        print(name, desc, image, amount, price)
+        print(name, desc, image, amount, price, category)
         
         save(name, amount, desc,image, price)
         return redirect(url_for('index'))
