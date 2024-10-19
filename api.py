@@ -7,6 +7,11 @@ def getAllProduto():
     date = res.json()
     return date  
 
+def getProduto(name):
+    res = requests.get(f"https://wiuhi.pythonanywhere.com/produtos/{name}")    
+    date = res.json()
+    return date  
+    
 
 def save(name: str, amount: int, desc: str, image: str, price: float, category: str):
     url = "https://wiuhi.pythonanywhere.com/produtos/add"    

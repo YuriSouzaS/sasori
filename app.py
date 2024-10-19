@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
-from api import getAllProduto, save
+from api import getAllProduto, save, getProduto
 
 app = Flask(__name__)
 
@@ -24,9 +24,12 @@ def add():
     return render_template('form.html')
 
 
-@app.route('/produto/')
-def produtoCard():
-    return render_template('produto.html')
+@app.route('/produto/<string:name>')
+def produtoCard(name):
+    date = getProduto(name)
+    
+    print(len(date))
+    return render_template('produto.html', content=date)
 
 
 
