@@ -5,8 +5,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    date = getAllProduto()
-    return render_template('index.html', date=date)
+    parts = getAllProduto()
+    return render_template('index.html', date=parts[0])
+
+@app.route('/next')
+def next():
+    parts = getAllProduto()
+    return render_template('index.html', date=parts[1])
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
@@ -27,8 +32,6 @@ def add():
 @app.route('/produto/<string:name>')
 def produtoCard(name):
     date = getProduto(name)
-    
-    print(len(date))
     return render_template('produto.html', content=date)
 
 

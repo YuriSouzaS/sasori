@@ -1,11 +1,17 @@
 import requests
 import json
 
+def fatia(lista):
+    meio = len(lista) // 2
+    part1 = lista[:meio]
+    part2 = lista[meio:]
+    return [part1, part2]
 
 def getAllProduto():
     res = requests.get("https://wiuhi.pythonanywhere.com/")    
     date = res.json()
-    return date  
+    parts = fatia(date)
+    return parts  
 
 def getProduto(name):
     res = requests.get(f"https://wiuhi.pythonanywhere.com/produtos/{name}")    
@@ -24,4 +30,3 @@ def save(name: str, amount: int, desc: str, image: str, price: float, category: 
         print("sucesso!")
     else:
         print("Erro", response.text)
-

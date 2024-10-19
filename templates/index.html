@@ -2,6 +2,40 @@
 
 {% block head %}
 <style>
+  .text-focus-in {
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  }
+
+  @-webkit-keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
+    }
+
+    100% {
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+      filter: blur(12px);
+      opacity: 0;
+    }
+
+    100% {
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+
   .card {
     margin: 10px;
   }
@@ -291,7 +325,7 @@
 
 <div class="row">
   {% for item in date %}
-  <div class="card">
+  <div class="card text-focus-in">
     <div class="image-container">
       <img src="{{ item['image'] }}" alt="">
 
@@ -349,7 +383,7 @@
     <div class="button-container">
       <button class="buy-button button">Buy Now</button>
       <button class="cart-button button">
-        <a class="btn-car" href="/produto/{{ item['name'] }}"  style="text-decoration: none;">
+        <a class="btn-car" href="/produto/{{ item['name'] }}" style="text-decoration: none;">
           <span class="material-symbols-outlined">
             search
           </span>
@@ -359,6 +393,19 @@
   </div>
   {% endfor %}
 </div>
+
+
+
+
+<nav class="" aria-label="...">
+  <ul class="pagination">
+    <li class="page-item " aria-current="page">
+      <a class="page-link" href="{{ url_for('index') }}">1</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="{{ url_for('next') }}">2</a></li>
+  </ul>
+</nav>
+
 
 
 {% endblock %}
